@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Search Results</h1>
+        <div class="row">
+            {% for user in users %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ user.avatar_url }}" class="card-img-top" alt="{{ user.login }}'s avatar">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ user.login }}</h5>
+                            <a href="{{ user.html_url }}" class="btn btn-primary">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <div class="col-12">
+                    <p>No users found.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
